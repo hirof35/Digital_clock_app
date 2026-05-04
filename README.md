@@ -33,4 +33,5 @@ Java Swingを使用して開発された、クラシックなローマ数字デ�
     javac classicClock/ClassicClock.java
     java classicClock.ClassicClock
     ```
+<img width="540" height="585" alt="スクリーンショット 2026-05-04 100902" src="https://github.com/user-attachments/assets/8fd44f6b-b3bc-4c22-aebf-34d867692e20" />
 
