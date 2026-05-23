@@ -1,37 +1,43 @@
+デジタル時計アプリ (Digital Clock App)
+Javaの標準GUIライブラリである「Swing」を使用した、シンプルで見やすいデスクトップ用デジタル時計アプリです。
+<img width="412" height="173" alt="スクリーンショット 2026-05-23 192522" src="https://github.com/user-attachments/assets/26e7bd1d-dceb-4483-b55f-aa15ee434bfc" />
 
+特徴
+リアルタイム更新: javax.swing.Timer を使用し、1秒ごとに正確に時刻を更新します。
 
-# Classic Sweep Clock
+視認性の高いデザイン: 黒背景に緑色のテキストを採用し、レトロなデジタル時計風のデザインに仕上げています。
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
-![GUI](https://img.shields.io/badge/GUI-Swing-blue?style=for-the-badge)
+文字ズレ防止: 等幅フォント（Monospaced）を使用しているため、秒が切り替わる際も文字が左右にガタガタ動きません。
 
-Java Swingを使用して開発された、クラシックなローマ数字デザインのアナログ時計です。
-標準的なステップ運針ではなく、高級時計のような滑らかな**スイープ運針（連続運針）**を再現しています。
+動作環境
+Java SE 8 以上 (JDK 8 以降)
 
-## ✨ 特徴
+ファイル構成
+DigitalClock.java : アプリケーションのメインソースコード
 
-*   **スイープ運針 (Sweep Movement)**: 秒針が1秒ごとに刻むのではなく、ミリ秒単位の計算により滑らかに回転します。
-*   **クラシック・デザイン**: 白い文字盤、アンチエイリアス処理された美しい曲線、そして伝統的なローマ数字のインデックスを採用。
-*   **ハイブリッド表示**: アナログ表示に加え、右下には現代的なデジタル日付・時刻を表示するインフォメーションパネルを搭載。
-*   **レスポンシブ描画**: ウィンドウサイズに合わせて時計の大きさが自動的に調整されます。
+実行方法
+1. コンパイル
+ターミナル（またはコマンドプロンプト）を開き、ソースコードがあるディレクトリで以下のコマンドを実行します。
 
-## 🛠 技術的なポイント
+Bash
+javac DigitalClock.java
+2. 実行
+コンパイルが成功すると DigitalClock.class が生成されます。以下のコマンドでアプリを起動します。
 
-*   **高頻度タイマー**: `javax.swing.Timer` を50ミリ秒間隔で実行し、描画を更新することで滑らかな動きを実現しています。
-*   **数学的座標計算**: 三角関数（$\sin$, $\cos$）を用いて、各針の先端座標や文字盤のインデックス位置を正確に算出しています。
-*   **Graphics2D 描画**: `RenderingHints` によるアンチエイリアス有効化、および `BasicStroke` による線の太さ・端点処理の最適化を行っています。
+Bash
+java DigitalClock
+カスタマイズのヒント
+ソースコード内の以下の部分を書き換えることで、簡単に見た目を変更できます。
 
-## 🚀 実行方法
+12時間表記（AM/PM）に変えたい場合
 
-1.  Javaがインストールされていることを確認します（Java 8以上推奨）。
-2.  リポジトリをクローンします。
-    ```bash
-    git clone https://github.com/YOUR_USERNAME/classic-sweep-clock.git
-    ```
-3.  コンパイルして実行します。
-    ```bash
-    javac classicClock/ClassicClock.java
-    java classicClock.ClassicClock
-    ```
-<img width="540" height="585" alt="スクリーンショット 2026-05-04 100902" src="https://github.com/user-attachments/assets/8fd44f6b-b3bc-4c22-aebf-34d867692e20" />
-
+Java
+// 変更前
+timeFormat = new SimpleDateFormat("HH:mm:ss");
+// 変更後（例: 03:15:45 PM）
+timeFormat = new SimpleDateFormat("hh:mm:ss a");
+* **文字の色を「青」に変えたい場合**
+  ```java
+timeLabel.setForeground(Color.BLUE);
+ライセンス
+このプロジェクトは MITライセンスのもとで公開されています。個人利用・商用利用を問わず、自由に変更・配布していただけます。
